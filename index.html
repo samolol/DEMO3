@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IronWrench Garage | Autoservis Brno</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="logo">IronWrench <span>Garage</span></div>
+      <button class="nav-toggle" aria-label="Otevřít menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" data-collapsible>
+        <li><a href="#services">Služby</a></li>
+        <li><a href="#calculator">Kalkulačka</a></li>
+        <li><a href="#reviews">Reference</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+      <a class="btn btn-primary" href="#booking">Objednat termín</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-content reveal">
+        <p class="eyebrow">Autoservis Brno | Industriální přesnost</p>
+        <h1>IronWrench Garage: <span>drsný servis</span> bez kompromisů.</h1>
+        <ul class="hero-benefits">
+          <li>Diagnostika nové generace do 45 minut.</li>
+          <li>Specialisté na sportovní i užitkové vozy.</li>
+          <li>Transparentní postupy a garantované díly.</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#booking">Objednat termín</a>
+          <a class="btn btn-ghost" href="#pricing">Ceník</a>
+        </div>
+      </div>
+      <div class="hero-panel reveal">
+        <div class="panel-strip"></div>
+        <div class="panel-stats">
+          <div>
+            <p>20+</p>
+            <span>let v terénu</span>
+          </div>
+          <div>
+            <p>4.9★</p>
+            <span>hodnocení</span>
+          </div>
+          <div>
+            <p>24/7</p>
+            <span>pohotovost</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="section-header reveal">
+        <h2>Služby v režimu „no mercy“</h2>
+        <p>Šest hlavních zásahů, které drží vaše auto v režimu výkonu.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card reveal">
+          <h3>Diagnostika</h3>
+          <p>Chyby odhalíme dřív, než vás zradí na silnici.</p>
+        </article>
+        <article class="service-card reveal">
+          <h3>Brzdy</h3>
+          <p>Precizní výměna kotoučů, destiček i kapaliny.</p>
+        </article>
+        <article class="service-card reveal">
+          <h3>Olej</h3>
+          <p>Specifikace podle výkonu, stavu a stylu jízdy.</p>
+        </article>
+        <article class="service-card reveal">
+          <h3>Pneu</h3>
+          <p>Montáž, vyvážení, skladování i kontrola tlaku.</p>
+        </article>
+        <article class="service-card reveal">
+          <h3>Klimatizace</h3>
+          <p>Čistíme, plníme a měříme bez kompromisů.</p>
+        </article>
+        <article class="service-card reveal">
+          <h3>Geometrie</h3>
+          <p>Laserová přesnost pro stabilitu i úsporu.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="calculator" id="calculator">
+      <div class="section-header reveal">
+        <h2>Interaktivní kalkulačka ceny</h2>
+        <p>Vyberte službu, typ vozu a režim. Výsledek vidíte okamžitě.</p>
+      </div>
+      <div class="calculator-grid">
+        <form class="calc-form reveal" id="price-form">
+          <label>
+            Služba
+            <select id="service-select" required>
+              <option value="" disabled selected>Vyberte službu</option>
+              <option value="diagnostika">Diagnostika</option>
+              <option value="brzdy">Brzdy</option>
+              <option value="olej">Olej</option>
+              <option value="pneu">Pneu</option>
+              <option value="klimatizace">Klimatizace</option>
+              <option value="geometrie">Geometrie</option>
+            </select>
+          </label>
+          <label>
+            Typ vozu
+            <select id="car-select" required>
+              <option value="osobni">Osobní</option>
+              <option value="suv">SUV</option>
+              <option value="dodavka">Dodávka</option>
+            </select>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" id="express" />
+            Express příplatek (do 24h)
+          </label>
+          <p class="calc-note">*Ceny jsou orientační a zahrnují práci + standardní materiál.</p>
+        </form>
+        <div class="calc-result reveal">
+          <h3>Výsledek</h3>
+          <div class="price" id="price-total">0 Kč</div>
+          <ul class="breakdown" id="price-breakdown">
+            <li>Vyberte službu pro výpočet.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="before-after" id="before-after">
+      <div class="section-header reveal">
+        <h2>Před / Po</h2>
+        <p>Posuňte jezdec a sledujte rozdíl po zásahu týmu IronWrench.</p>
+      </div>
+      <div class="ba-wrapper reveal">
+        <div class="ba-frame">
+          <div class="ba-layer ba-after"></div>
+          <div class="ba-layer ba-before" id="ba-before"></div>
+          <div class="ba-line" id="ba-line"></div>
+        </div>
+        <input type="range" id="ba-slider" min="0" max="100" value="55" aria-label="Posuvník před a po" />
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="section-header reveal">
+        <h2>Reference od řidičů</h2>
+        <p>Hodnocení, která nám drží reputaci ve vysokých otáčkách.</p>
+      </div>
+      <div class="review-controls reveal">
+        <button class="btn btn-ghost active" data-sort="newest">Nejnovější</button>
+        <button class="btn btn-ghost" data-sort="best">Nejlepší</button>
+      </div>
+      <div class="review-list" id="review-list">
+        <article class="review-card reveal" data-rating="5" data-date="2024-08-02">
+          <div class="review-meta">
+            <strong>Lucie K.</strong>
+            <span>★★★★★</span>
+          </div>
+          <p>Rychlá diagnostika, jasná komunikace a auto zase táhne.</p>
+        </article>
+        <article class="review-card reveal" data-rating="4" data-date="2024-07-18">
+          <div class="review-meta">
+            <strong>Martin P.</strong>
+            <span>★★★★☆</span>
+          </div>
+          <p>Skvělý přístup, trochu vyšší cena ale férová práce.</p>
+        </article>
+        <article class="review-card reveal" data-rating="5" data-date="2024-09-01">
+          <div class="review-meta">
+            <strong>Jana V.</strong>
+            <span>★★★★★</span>
+          </div>
+          <p>Brzdy jako nové, oceňuji report i fotky stavu.</p>
+        </article>
+        <article class="review-card reveal" data-rating="5" data-date="2024-09-12">
+          <div class="review-meta">
+            <strong>Tomáš D.</strong>
+            <span>★★★★★</span>
+          </div>
+          <p>Přijeli pro vůz, doručili zpět, vše perfektní.</p>
+        </article>
+        <article class="review-card reveal" data-rating="4" data-date="2024-06-28">
+          <div class="review-meta">
+            <strong>Eva S.</strong>
+            <span>★★★★☆</span>
+          </div>
+          <p>Po geometrii se auto chová stabilně i na dálnici.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="section-header reveal">
+        <h2>FAQ</h2>
+        <p>Rychlé odpovědi na nejčastější dotazy.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Jak rychle získám termín?
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Standardně do 48 hodin. Express režim do 24 hodin.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Používáte originální díly?
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Ano, pracujeme s OEM a ověřenými prémiovými dodavateli.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Co když potřebuji odtah?
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Máme partnerský odtah 24/7 v rámci Brna a okolí.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking" id="booking">
+      <div class="section-header reveal">
+        <h2>Objednávka</h2>
+        <p>Dejte nám termín, my dodáme výkon.</p>
+      </div>
+      <form class="booking-form reveal" id="booking-form" novalidate>
+        <label>
+          Služba
+          <select name="service" required>
+            <option value="" disabled selected>Vyberte službu</option>
+            <option>Diagnostika</option>
+            <option>Brzdy</option>
+            <option>Olej</option>
+            <option>Pneu</option>
+            <option>Klimatizace</option>
+            <option>Geometrie</option>
+          </select>
+        </label>
+        <label>
+          Datum
+          <input type="date" name="date" required />
+        </label>
+        <label>
+          Telefon
+          <input type="tel" name="phone" placeholder="+420 777 000 000" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" placeholder="mail@ironwrench.cz" required />
+        </label>
+        <label>
+          Poznámka
+          <textarea name="note" rows="3" placeholder="Popište problém"></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit">Odeslat</button>
+        <p class="form-status" id="form-status"></p>
+      </form>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="section-header reveal">
+        <h2>Kontakt</h2>
+        <p>IronWrench Garage · Brno - Královo Pole</p>
+      </div>
+      <div class="contact-grid reveal">
+        <div>
+          <h3>Adresa</h3>
+          <p id="address">Sportovní 12, 612 00 Brno</p>
+          <h3>Otevírací doba</h3>
+          <p>Po–Pá: 7:00–19:00<br />So: 8:00–14:00<br />Ne: pohotovost</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="tel:+420777000000">Zavolat</a>
+          <button class="btn btn-ghost" id="copy-address">Zkopírovat adresu</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="pricing">
+    <div class="footer-inner">
+      <div>
+        <strong>IronWrench Garage</strong>
+        <p>Průmyslová preciznost pro každý kilometr.</p>
+      </div>
+      <div>
+        <p>Ceník od 890 Kč / servisní zásah</p>
+        <p>© 2024 IronWrench Garage</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
